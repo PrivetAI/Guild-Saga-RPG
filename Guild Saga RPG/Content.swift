@@ -43,43 +43,55 @@ struct HGQuestDef: Identifiable {
 
 enum HGContent {
 
-    // MARK: Heroes (24 across 6 classes & all rarities)
+    // MARK: Heroes (36 across 6 classes & all rarities)
 
     static let heroDefs: [HGHeroDef] = [
         // Warriors
         HGHeroDef(id: "hero_aldric", name: "Aldric", title: "the Steadfast", heroClass: .warrior, rarity: .common, basePower: 12, growth: 5, goldCost: 60, tokenCost: 0),
         HGHeroDef(id: "hero_brunhild", name: "Brunhild", title: "Shieldmaiden", heroClass: .warrior, rarity: .rare, basePower: 22, growth: 8, goldCost: 320, tokenCost: 0),
         HGHeroDef(id: "hero_gorath", name: "Gorath", title: "the Unbroken", heroClass: .warrior, rarity: .epic, basePower: 34, growth: 12, goldCost: 0, tokenCost: 14),
+        HGHeroDef(id: "hero_torvald", name: "Torvald", title: "the Bold", heroClass: .warrior, rarity: .uncommon, basePower: 18, growth: 7, goldCost: 165, tokenCost: 0),
+        HGHeroDef(id: "hero_signy", name: "Signy", title: "Ironheart", heroClass: .warrior, rarity: .common, basePower: 13, growth: 5, goldCost: 68, tokenCost: 0),
         HGHeroDef(id: "hero_valdris", name: "Valdris", title: "Warlord of the East", heroClass: .warrior, rarity: .legendary, basePower: 52, growth: 18, goldCost: 0, tokenCost: 40),
 
         // Mages
         HGHeroDef(id: "hero_elenwe", name: "Elenwe", title: "the Curious", heroClass: .mage, rarity: .common, basePower: 11, growth: 6, goldCost: 70, tokenCost: 0),
         HGHeroDef(id: "hero_morrigan", name: "Morrigan", title: "Stormcaller", heroClass: .mage, rarity: .uncommon, basePower: 17, growth: 7, goldCost: 160, tokenCost: 0),
         HGHeroDef(id: "hero_zephyrine", name: "Zephyrine", title: "Arcane Adept", heroClass: .mage, rarity: .epic, basePower: 32, growth: 13, goldCost: 0, tokenCost: 16),
+        HGHeroDef(id: "hero_lyra", name: "Lyra", title: "Frostweaver", heroClass: .mage, rarity: .rare, basePower: 23, growth: 8, goldCost: 330, tokenCost: 0),
+        HGHeroDef(id: "hero_orin", name: "Orin", title: "the Apprentice", heroClass: .mage, rarity: .common, basePower: 11, growth: 6, goldCost: 68, tokenCost: 0),
         HGHeroDef(id: "hero_thaumiel", name: "Thaumiel", title: "the Voidwise", heroClass: .mage, rarity: .legendary, basePower: 50, growth: 19, goldCost: 0, tokenCost: 42),
 
         // Rangers
         HGHeroDef(id: "hero_finn", name: "Finn", title: "the Swift", heroClass: .ranger, rarity: .common, basePower: 12, growth: 5, goldCost: 65, tokenCost: 0),
         HGHeroDef(id: "hero_sylvara", name: "Sylvara", title: "Greenwarden", heroClass: .ranger, rarity: .uncommon, basePower: 18, growth: 7, goldCost: 150, tokenCost: 0),
         HGHeroDef(id: "hero_kaelen", name: "Kaelen", title: "Hawk-eye", heroClass: .ranger, rarity: .rare, basePower: 24, growth: 9, goldCost: 340, tokenCost: 0),
+        HGHeroDef(id: "hero_thalia", name: "Thalia", title: "Beaststalker", heroClass: .ranger, rarity: .epic, basePower: 33, growth: 12, goldCost: 0, tokenCost: 15),
+        HGHeroDef(id: "hero_rook", name: "Rook", title: "the Tracker", heroClass: .ranger, rarity: .common, basePower: 12, growth: 5, goldCost: 66, tokenCost: 0),
         HGHeroDef(id: "hero_artemys", name: "Artemys", title: "the Trueshot", heroClass: .ranger, rarity: .legendary, basePower: 48, growth: 18, goldCost: 0, tokenCost: 38),
 
         // Clerics
         HGHeroDef(id: "hero_mira", name: "Mira", title: "the Kind", heroClass: .cleric, rarity: .common, basePower: 10, growth: 5, goldCost: 60, tokenCost: 0),
         HGHeroDef(id: "hero_benedict", name: "Benedict", title: "Lightbearer", heroClass: .cleric, rarity: .uncommon, basePower: 16, growth: 7, goldCost: 155, tokenCost: 0),
         HGHeroDef(id: "hero_seraphine", name: "Seraphine", title: "the Radiant", heroClass: .cleric, rarity: .epic, basePower: 31, growth: 12, goldCost: 0, tokenCost: 15),
+        HGHeroDef(id: "hero_aurelia", name: "Aurelia", title: "the Devout", heroClass: .cleric, rarity: .rare, basePower: 23, growth: 8, goldCost: 325, tokenCost: 0),
+        HGHeroDef(id: "hero_tobias", name: "Tobias", title: "Acolyte", heroClass: .cleric, rarity: .common, basePower: 10, growth: 5, goldCost: 62, tokenCost: 0),
         HGHeroDef(id: "hero_lucent", name: "Lucent", title: "Saint of Dawn", heroClass: .cleric, rarity: .legendary, basePower: 47, growth: 17, goldCost: 0, tokenCost: 36),
 
         // Rogues
         HGHeroDef(id: "hero_vex", name: "Vex", title: "the Shadow", heroClass: .rogue, rarity: .common, basePower: 13, growth: 5, goldCost: 70, tokenCost: 0),
         HGHeroDef(id: "hero_isolde", name: "Isolde", title: "Nightblade", heroClass: .rogue, rarity: .rare, basePower: 25, growth: 9, goldCost: 330, tokenCost: 0),
         HGHeroDef(id: "hero_corvus", name: "Corvus", title: "the Veiled", heroClass: .rogue, rarity: .epic, basePower: 33, growth: 13, goldCost: 0, tokenCost: 16),
+        HGHeroDef(id: "hero_dax", name: "Dax", title: "Cutpurse", heroClass: .rogue, rarity: .uncommon, basePower: 18, growth: 7, goldCost: 160, tokenCost: 0),
+        HGHeroDef(id: "hero_renna", name: "Renna", title: "the Quick", heroClass: .rogue, rarity: .common, basePower: 12, growth: 5, goldCost: 66, tokenCost: 0),
         HGHeroDef(id: "hero_nyx", name: "Nyx", title: "Whisper of Coin", heroClass: .rogue, rarity: .legendary, basePower: 49, growth: 18, goldCost: 0, tokenCost: 40),
 
         // Paladins
         HGHeroDef(id: "hero_garrick", name: "Garrick", title: "Squire", heroClass: .paladin, rarity: .uncommon, basePower: 19, growth: 7, goldCost: 170, tokenCost: 0),
         HGHeroDef(id: "hero_rowena", name: "Rowena", title: "the Oathbound", heroClass: .paladin, rarity: .rare, basePower: 26, growth: 9, goldCost: 360, tokenCost: 0),
         HGHeroDef(id: "hero_alaric", name: "Alaric", title: "the Resolute", heroClass: .paladin, rarity: .epic, basePower: 35, growth: 13, goldCost: 0, tokenCost: 17),
+        HGHeroDef(id: "hero_perrin", name: "Perrin", title: "the Hopeful", heroClass: .paladin, rarity: .common, basePower: 12, growth: 5, goldCost: 70, tokenCost: 0),
+        HGHeroDef(id: "hero_isabeau", name: "Isabeau", title: "Dawnguard", heroClass: .paladin, rarity: .uncommon, basePower: 19, growth: 7, goldCost: 168, tokenCost: 0),
         HGHeroDef(id: "hero_celestine", name: "Celestine", title: "Champion of the Light", heroClass: .paladin, rarity: .legendary, basePower: 54, growth: 19, goldCost: 0, tokenCost: 44),
     ]
 
@@ -93,33 +105,41 @@ enum HGContent {
         heroDefMap[id] ?? heroDefs[0]
     }
 
-    // MARK: Quests (20 across four tiers)
+    // MARK: Quests (25 across four tiers)
 
     static let questDefs: [HGQuestDef] = [
         // Easy (minutes)
-        HGQuestDef(id: "q_rats", name: "Cellar Rats", tier: .easy, requiredPower: 14, durationSeconds: 120, goldReward: 30, xpReward: 25, tokenReward: 0, lootRarityFloor: .common, maxHeroes: 1),
-        HGQuestDef(id: "q_herbs", name: "Gather Healing Herbs", tier: .easy, requiredPower: 18, durationSeconds: 240, goldReward: 42, xpReward: 32, tokenReward: 0, lootRarityFloor: .common, maxHeroes: 1),
+        HGQuestDef(id: "q_rats", name: "Cellar Rats", tier: .easy, requiredPower: 10, durationSeconds: 120, goldReward: 30, xpReward: 25, tokenReward: 0, lootRarityFloor: .common, maxHeroes: 2),
+        HGQuestDef(id: "q_herbs", name: "Gather Healing Herbs", tier: .easy, requiredPower: 16, durationSeconds: 240, goldReward: 42, xpReward: 32, tokenReward: 0, lootRarityFloor: .common, maxHeroes: 2),
+        HGQuestDef(id: "q_well", name: "Clear the Old Well", tier: .easy, requiredPower: 20, durationSeconds: 300, goldReward: 48, xpReward: 36, tokenReward: 0, lootRarityFloor: .common, maxHeroes: 2),
         HGQuestDef(id: "q_courier", name: "Courier Run", tier: .easy, requiredPower: 24, durationSeconds: 360, goldReward: 55, xpReward: 40, tokenReward: 0, lootRarityFloor: .common, maxHeroes: 2),
         HGQuestDef(id: "q_goblins", name: "Goblin Scouts", tier: .easy, requiredPower: 32, durationSeconds: 600, goldReward: 80, xpReward: 55, tokenReward: 0, lootRarityFloor: .uncommon, maxHeroes: 2),
+        HGQuestDef(id: "q_wolves", name: "Wolf Pack", tier: .easy, requiredPower: 36, durationSeconds: 720, goldReward: 95, xpReward: 62, tokenReward: 1, lootRarityFloor: .uncommon, maxHeroes: 2),
         HGQuestDef(id: "q_bridge", name: "Guard the Bridge", tier: .easy, requiredPower: 40, durationSeconds: 900, goldReward: 110, xpReward: 70, tokenReward: 1, lootRarityFloor: .uncommon, maxHeroes: 2),
 
         // Hard (tens of minutes)
         HGQuestDef(id: "q_bandits", name: "Bandit Hideout", tier: .hard, requiredPower: 60, durationSeconds: 1800, goldReward: 190, xpReward: 110, tokenReward: 1, lootRarityFloor: .uncommon, maxHeroes: 2),
+        HGQuestDef(id: "q_smugglers", name: "Smuggler's Cove", tier: .hard, requiredPower: 70, durationSeconds: 2100, goldReward: 230, xpReward: 130, tokenReward: 1, lootRarityFloor: .uncommon, maxHeroes: 3),
         HGQuestDef(id: "q_mine", name: "Cleanse the Mines", tier: .hard, requiredPower: 80, durationSeconds: 2700, goldReward: 270, xpReward: 150, tokenReward: 1, lootRarityFloor: .rare, maxHeroes: 3),
         HGQuestDef(id: "q_wraith", name: "Marsh Wraiths", tier: .hard, requiredPower: 110, durationSeconds: 3600, goldReward: 360, xpReward: 200, tokenReward: 2, lootRarityFloor: .rare, maxHeroes: 3),
+        HGQuestDef(id: "q_ruins", name: "Sunken Ruins", tier: .hard, requiredPower: 125, durationSeconds: 4500, goldReward: 410, xpReward: 225, tokenReward: 2, lootRarityFloor: .rare, maxHeroes: 3),
         HGQuestDef(id: "q_caravan", name: "Escort the Caravan", tier: .hard, requiredPower: 140, durationSeconds: 5400, goldReward: 470, xpReward: 250, tokenReward: 2, lootRarityFloor: .rare, maxHeroes: 3),
 
         // Elite (hours)
         HGQuestDef(id: "q_orc", name: "Orc War-Camp", tier: .elite, requiredPower: 190, durationSeconds: 7200, goldReward: 680, xpReward: 360, tokenReward: 3, lootRarityFloor: .rare, maxHeroes: 3),
+        HGQuestDef(id: "q_giant", name: "Hill Giant Rampage", tier: .elite, requiredPower: 220, durationSeconds: 9000, goldReward: 800, xpReward: 420, tokenReward: 3, lootRarityFloor: .epic, maxHeroes: 4),
         HGQuestDef(id: "q_crypt", name: "The Forgotten Crypt", tier: .elite, requiredPower: 250, durationSeconds: 10800, goldReward: 940, xpReward: 480, tokenReward: 3, lootRarityFloor: .epic, maxHeroes: 4),
         HGQuestDef(id: "q_troll", name: "Mountain Troll", tier: .elite, requiredPower: 330, durationSeconds: 14400, goldReward: 1300, xpReward: 620, tokenReward: 4, lootRarityFloor: .epic, maxHeroes: 4),
+        HGQuestDef(id: "q_coven", name: "Witch Coven", tier: .elite, requiredPower: 380, durationSeconds: 16200, goldReward: 1520, xpReward: 700, tokenReward: 4, lootRarityFloor: .epic, maxHeroes: 4),
         HGQuestDef(id: "q_warlock", name: "The Black Warlock", tier: .elite, requiredPower: 430, durationSeconds: 18000, goldReward: 1750, xpReward: 800, tokenReward: 5, lootRarityFloor: .epic, maxHeroes: 4),
 
         // Legendary (long hauls)
         HGQuestDef(id: "q_dragon", name: "Slay the Frost Dragon", tier: .legendary, requiredPower: 560, durationSeconds: 25200, goldReward: 2600, xpReward: 1100, tokenReward: 6, lootRarityFloor: .epic, maxHeroes: 5),
+        HGQuestDef(id: "q_kraken", name: "Wake the Kraken", tier: .legendary, requiredPower: 640, durationSeconds: 28800, goldReward: 3100, xpReward: 1280, tokenReward: 7, lootRarityFloor: .legendary, maxHeroes: 5),
         HGQuestDef(id: "q_demon", name: "Seal the Demon Gate", tier: .legendary, requiredPower: 720, durationSeconds: 32400, goldReward: 3600, xpReward: 1450, tokenReward: 8, lootRarityFloor: .legendary, maxHeroes: 5),
         HGQuestDef(id: "q_lich", name: "The Lich King's Tomb", tier: .legendary, requiredPower: 920, durationSeconds: 43200, goldReward: 5000, xpReward: 1900, tokenReward: 10, lootRarityFloor: .legendary, maxHeroes: 5),
         HGQuestDef(id: "q_titan", name: "Awaken the Titan", tier: .legendary, requiredPower: 1180, durationSeconds: 57600, goldReward: 7000, xpReward: 2500, tokenReward: 12, lootRarityFloor: .legendary, maxHeroes: 5),
+        HGQuestDef(id: "q_void", name: "The Voidmaw", tier: .legendary, requiredPower: 1450, durationSeconds: 72000, goldReward: 9000, xpReward: 3100, tokenReward: 14, lootRarityFloor: .legendary, maxHeroes: 5),
     ]
 
     private static let questDefMap: [String: HGQuestDef] = {
