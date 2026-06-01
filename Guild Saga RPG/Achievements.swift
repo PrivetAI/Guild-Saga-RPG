@@ -7,7 +7,7 @@ struct HGAchievement: Identifiable {
     let title: String
     let detail: String
     let goal: Int
-    let progress: (HeroGuildStore) -> Int
+    let progress: (GuildSagaStore) -> Int
 }
 
 enum HGAchievements {

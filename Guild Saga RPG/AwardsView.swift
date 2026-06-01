@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AwardsView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
 
     var body: some View {
         ZStack {

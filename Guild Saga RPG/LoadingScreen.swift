@@ -1,7 +1,7 @@
 import SwiftUI
 
 // Splash shown while the launch check runs.
-struct HeroGuildLoadingScreen: View {
+struct GuildSagaLoadingScreen: View {
     @State private var spin = false
     @State private var pulse = false
 
@@ -25,7 +25,7 @@ struct HeroGuildLoadingScreen: View {
                         .frame(width: 68, height: 68)
                         .scaleEffect(pulse ? 1.06 : 0.94)
                 }
-                Text("HERO GUILD IDLE")
+                Text("GUILD SAGA RPG")
                     .font(.system(size: 18, weight: .heavy, design: .rounded))
                     .tracking(2)
                     .foregroundColor(HGPalette.textPrimary)

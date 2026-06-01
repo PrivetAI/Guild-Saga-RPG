@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @State private var showOnboarding = false
 
     var body: some View {

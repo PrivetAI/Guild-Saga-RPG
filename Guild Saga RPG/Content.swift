@@ -184,12 +184,12 @@ enum HGContent {
             if roll < 0.42 - qualityBonus { targetRarity = .common }
             else if roll < 0.70 - qualityBonus { targetRarity = .uncommon }
             else if roll < 0.88 { targetRarity = .rare }
-            else if roll < 0.97 + qualityBonus { targetRarity = .epic }
+            else if roll < min(0.97 + qualityBonus, 0.98) { targetRarity = .epic }
             else { targetRarity = .legendary }
             let candidates = heroDefs.filter { $0.rarity == targetRarity }
             guard !candidates.isEmpty else { continue }
             let pick = candidates[rng.int(candidates.count)]
-            pool.append(pick.id)
+            if !pool.contains(pick.id) { pool.append(pick.id) }
         }
         // Guarantee at least one entry.
         if pool.isEmpty { pool.append(heroDefs[0].id) }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct QuestsView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @State private var assignSlotIndex: Int? = nil
 
     var body: some View {
@@ -72,7 +72,7 @@ struct IdentifiableInt: Identifiable {
 // MARK: - Quest slot card (active = countdown, idle = tap to assign)
 
 struct QuestSlotCard: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     let slot: HGQuestSlot
     let onAssign: () -> Void
 

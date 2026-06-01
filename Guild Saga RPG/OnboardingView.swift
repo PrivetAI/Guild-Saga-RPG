@@ -2,7 +2,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Binding var isPresented: Bool
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @State private var page = 0
 
     private let pages: [(title: String, body: String)] = [

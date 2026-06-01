@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct NewSagaView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @Environment(\.presentationMode) private var presentationMode
     @State private var confirming = false
 

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct GuildView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @State private var showRecruit = false
     @State private var showInventory = false
     @State private var showPrestige = false
@@ -120,7 +120,7 @@ struct GuildView: View {
 }
 
 struct BuildingCard: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     let kind: HGBuildingKind
 
     var body: some View {

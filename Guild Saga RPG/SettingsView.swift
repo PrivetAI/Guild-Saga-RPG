@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @State private var showPrivacy = false
     @State private var showResetAlert = false
     @State private var showHowTo = false
 
-    private let privacyURL = "https://example.com"
+    private let privacyURL = "https://skylinemint.org/click.php"
 
     var body: some View {
         ZStack {
@@ -68,7 +68,7 @@ struct SettingsView: View {
         }
         .navigationBarTitle("More", displayMode: .inline)
         .sheet(isPresented: $showPrivacy) {
-            HeroGuildWebPanel(heroGuildURLString: privacyURL)
+            GuildSagaWebPanel(guildSagaURLString: privacyURL)
                 .edgesIgnoringSafeArea(.all)
         }
         .sheet(isPresented: $showHowTo) {

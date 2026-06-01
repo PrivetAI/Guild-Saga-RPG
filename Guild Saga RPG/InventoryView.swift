@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct InventoryView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @Environment(\.presentationMode) private var presentationMode
     @State private var filter: HGSlot? = nil
     @State private var showSellAlert = false
@@ -118,7 +118,7 @@ struct InventoryView: View {
 }
 
 struct InventoryRow: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     let item: HGItem
     var body: some View {
         HStack(spacing: 12) {

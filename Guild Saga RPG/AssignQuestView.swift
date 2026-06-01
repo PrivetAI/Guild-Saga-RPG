@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AssignQuestView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @Environment(\.presentationMode) private var presentationMode
     let slotIndex: Int
 

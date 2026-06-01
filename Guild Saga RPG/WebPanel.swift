@@ -1,9 +1,9 @@
 import SwiftUI
 import WebKit
 
-// Fullscreen / sheet WebView wrapper. Renamed per-app: heroGuild* prefix.
-struct HeroGuildWebPanel: UIViewRepresentable {
-    let heroGuildURLString: String
+// Fullscreen / sheet WebView wrapper. Renamed per-app: guildSaga* prefix.
+struct GuildSagaWebPanel: UIViewRepresentable {
+    let guildSagaURLString: String
 
     func makeUIView(context: Context) -> WKWebView {
         let config = WKWebViewConfiguration()
@@ -12,7 +12,7 @@ struct HeroGuildWebPanel: UIViewRepresentable {
         webView.scrollView.contentInsetAdjustmentBehavior = .always
         webView.isOpaque = true
         webView.backgroundColor = UIColor(HGPalette.background)
-        if let url = URL(string: heroGuildURLString) {
+        if let url = URL(string: guildSagaURLString) {
             webView.load(URLRequest(url: url))
         }
         return webView

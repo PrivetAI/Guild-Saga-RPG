@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HeroDetailView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     let heroId: String
     @State private var equipSlot: HGSlot? = nil
 
@@ -183,7 +183,7 @@ struct SlotWrapper: Identifiable {
 // MARK: - Equip picker (inventory filtered to a slot)
 
 struct EquipPickerView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @Environment(\.presentationMode) private var presentationMode
     let heroId: String
     let slot: HGSlot

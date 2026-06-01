@@ -2,7 +2,7 @@ import SwiftUI
 
 /// App shell: a custom HStack tab bar (NOT a TabView) over a `switch` on the selected tab.
 struct RootTabView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @State private var selectedTab = 0
     @State private var toastTitle: String?
 
@@ -135,7 +135,7 @@ struct RootTabView: View {
 
 // Shared resource header used at the top of game tabs.
 struct HGResourceHeader: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     var body: some View {
         HStack(spacing: 10) {
             resource(AnyView(HGCoinIcon()), "\(store.gold)", HGPalette.accentDeep)

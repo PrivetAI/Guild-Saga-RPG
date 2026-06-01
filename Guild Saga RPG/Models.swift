@@ -263,6 +263,7 @@ struct HGSave: Codable {
     var recruitPool: [String]           // defIds available to recruit
     var recruitPoolSeed: UInt64         // seed used to derive the current pool
     var recruitsTaken: Int              // recruits performed (drives pool/refresh seeds)
+    var lootSeedCounter: UInt64         // monotone counter for deterministic loot seeds
     var stats: HGStats
 
     init() {
@@ -276,6 +277,7 @@ struct HGSave: Codable {
         recruitPool = []
         recruitPoolSeed = 0x5EED_1234_ABCD_0001
         recruitsTaken = 0
+        lootSeedCounter = 0
         stats = HGStats()
     }
 
@@ -291,11 +293,12 @@ struct HGSave: Codable {
         recruitPool = try c.decodeIfPresent([String].self, forKey: .recruitPool) ?? []
         recruitPoolSeed = try c.decodeIfPresent(UInt64.self, forKey: .recruitPoolSeed) ?? 0x5EED_1234_ABCD_0001
         recruitsTaken = try c.decodeIfPresent(Int.self, forKey: .recruitsTaken) ?? 0
+        lootSeedCounter = try c.decodeIfPresent(UInt64.self, forKey: .lootSeedCounter) ?? 0
         stats = try c.decodeIfPresent(HGStats.self, forKey: .stats) ?? HGStats()
     }
 
     enum CodingKeys: String, CodingKey {
         case gold, tokens, renown, heroes, inventory, buildingLevels
-        case slots, recruitPool, recruitPoolSeed, recruitsTaken, stats
+        case slots, recruitPool, recruitPoolSeed, recruitsTaken, lootSeedCounter, stats
     }
 }

@@ -15,7 +15,7 @@ struct HGQuestResult: Identifiable {
 
 // MARK: - Store (Codable + UserDefaults under hgi.*)
 
-final class HeroGuildStore: ObservableObject {
+final class GuildSagaStore: ObservableObject {
     private let saveKey = "hgi.save.v1"
     private let settingsKey = "hgi.settings.v1"
     private let achievementsKey = "hgi.achievements.v1"
@@ -36,8 +36,7 @@ final class HeroGuildStore: ObservableObject {
     private var timer: Timer?
     private var lastSaveTime: Date = .distantPast
 
-    // For deterministic loot/reward seeds across launches.
-    private var rewardCounter: UInt64 = 0
+    // rewardCounter removed — loot seeds now use save.lootSeedCounter (persisted).
 
     init() {
         let d = UserDefaults.standard
@@ -275,9 +274,8 @@ final class HeroGuildStore: ObservableObject {
     }
 
     private func nextRewardSeed() -> UInt64 {
-        rewardCounter &+= 1
-        let base = UInt64(bitPattern: Int64(Date().timeIntervalSince1970 * 1000))
-        return HGSplitMix64.mix(base &+ rewardCounter &* 0x9E3779B97F4A7C15)
+        save.lootSeedCounter &+= 1
+        return HGSplitMix64.mix(save.lootSeedCounter &* 0x9E3779B97F4A7C15)
     }
 
     private func grantQuestRewards(quest: HGQuestDef, heroIds: [String], slotIndex: Int) -> HGQuestResult {
@@ -388,6 +386,7 @@ final class HeroGuildStore: ObservableObject {
         save.stats.highestPower = max(save.stats.highestPower, totalPower)
         // Remove from pool so it can't be recruited twice.
         save.recruitPool.remove(at: poolIndex)
+        save.recruitsTaken += 1
         evaluateAchievements()
         persistSave()
         return true

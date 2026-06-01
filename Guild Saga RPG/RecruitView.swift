@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RecruitView: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
@@ -82,7 +82,7 @@ struct RecruitView: View {
 }
 
 struct RecruitCard: View {
-    @EnvironmentObject var store: HeroGuildStore
+    @EnvironmentObject var store: GuildSagaStore
     let poolIndex: Int
     let defId: String
 
