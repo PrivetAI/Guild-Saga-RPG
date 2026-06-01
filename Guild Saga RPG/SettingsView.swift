@@ -69,7 +69,8 @@ struct SettingsView: View {
         .navigationBarTitle("More", displayMode: .inline)
         .sheet(isPresented: $showPrivacy) {
             GuildSagaWebPanel(guildSagaURLString: privacyURL)
-                .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.bottom)
+                .background(Color.black.ignoresSafeArea())
         }
         .sheet(isPresented: $showHowTo) {
             HowToPlayView()
